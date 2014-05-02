@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B29AC72C19138D3000F07D5A /* images.json in Resources */ = {isa = PBXBuildFile; fileRef = B29AC72B19138D3000F07D5A /* images.json */; };
 		B2E0079F191E826C00E434E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E0079E191E826C00E434E2 /* Foundation.framework */; };
 		B2E007A1191E826C00E434E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E007A0191E826C00E434E2 /* CoreGraphics.framework */; };
 		B2E007A3191E826C00E434E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E007A2191E826C00E434E2 /* UIKit.framework */; };
@@ -47,7 +48,6 @@
 		B2E0088C191F497900E434E2 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E00886191F497900E434E2 /* MJRefreshFooterView.m */; };
 		B2E0088D191F497900E434E2 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E00888191F497900E434E2 /* MJRefreshHeaderView.m */; };
 		B2E00890191F4CBD00E434E2 /* photoDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = B2E0088F191F4CBD00E434E2 /* photoDefault.png */; };
-		B2E00892191F4EEF00E434E2 /* gallery.json in Resources */ = {isa = PBXBuildFile; fileRef = B2E00891191F4EEF00E434E2 /* gallery.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B29AC72B19138D3000F07D5A /* images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = images.json; sourceTree = "<group>"; };
 		B2E0079B191E826C00E434E2 /* BaiduImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E0079E191E826C00E434E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2E007A0191E826C00E434E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,7 +130,6 @@
 		B2E00887191F497900E434E2 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
 		B2E00888191F497900E434E2 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		B2E0088F191F4CBD00E434E2 /* photoDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDefault.png; sourceTree = "<group>"; };
-		B2E00891191F4EEF00E434E2 /* gallery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gallery.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 		B2E007A4191E826C00E434E2 /* BaiduImage */ = {
 			isa = PBXGroup;
 			children = (
-				B2E00891191F4EEF00E434E2 /* gallery.json */,
+				B29AC72B19138D3000F07D5A /* images.json */,
 				B2E00824191F46F700E434E2 /* KTPhotoView+SDWebImage.h */,
 				B2E00825191F46F700E434E2 /* KTPhotoView+SDWebImage.m */,
 				B2E00826191F46F700E434E2 /* KTThumbView+SDWebImage.h */,
@@ -395,12 +395,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E00892191F4EEF00E434E2 /* gallery.json in Resources */,
 				B2E007B7191E826C00E434E2 /* Images.xcassets in Resources */,
 				B2E007DC191F27FF00E434E2 /* blueArrowDown.png in Resources */,
 				B2E00878191F477900E434E2 /* LICENSE in Resources */,
 				B2E00890191F4CBD00E434E2 /* photoDefault.png in Resources */,
 				B2E007A9191E826C00E434E2 /* InfoPlist.strings in Resources */,
+				B29AC72C19138D3000F07D5A /* images.json in Resources */,
 				B2E007DD191F27FF00E434E2 /* blueArrowDown@2x.png in Resources */,
 				B2E007DB191F27FF00E434E2 /* blueArrow@2x.png in Resources */,
 				B2E00879191F477900E434E2 /* README.md in Resources */,

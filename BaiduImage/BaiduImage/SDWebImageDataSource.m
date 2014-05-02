@@ -21,6 +21,7 @@
 
 #define FULL_SIZE_INDEX 0
 #define THUMBNAIL_INDEX 1
+#define SERVER_URL @"http://192.168.1.140:8080/ImageServer"
 
 
 - (id)init {
@@ -29,12 +30,12 @@
         _isImagesLoaded = NO;
         _images = [[NSMutableArray alloc] init];
         
-        NSString* path = [[NSBundle mainBundle] pathForResource:@"gallery" ofType:@"json"];
+        NSString* path = [[NSBundle mainBundle] pathForResource:@"images" ofType:@"json"];
         NSLog(@"%s line:%d %@", __FUNCTION__, __LINE__, path);
         NSData* data = [[NSData alloc] initWithContentsOfFile:path];
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         NSLog(@"%s line:%d dict = %@", __FUNCTION__, __LINE__, json);
-        _totalImages = [json objectForKey:@"data"];
+        _totalImages = [json objectForKey:@"file_names"];
         
         [self append];
     }
@@ -50,15 +51,18 @@
 }
 
 - (void)imageAtIndex:(NSInteger)index photoView:(KTPhotoView *)photoView {
-    NSDictionary *object = [_images objectAtIndex:index];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://imgur.com/%@%@", [object objectForKey:@"hash"], [object objectForKey:@"ext"]]];
+    NSString *fileName = [_images objectAtIndex:index];
+    NSString* urlString = [[NSString alloc] initWithFormat:@"%@/images/%@", SERVER_URL, fileName];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
     [photoView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"photoDefault.png"]];
 }
 
 - (void)thumbImageAtIndex:(NSInteger)index thumbView:(KTThumbView *)thumbView {
+    NSString *fileName = [_images objectAtIndex:index];
+    NSString* urlString = [[NSString alloc] initWithFormat:@"%@/images/thumb/%@", SERVER_URL, fileName];
+    NSURL *url = [NSURL URLWithString:urlString];
     
-    NSDictionary *object = [_images objectAtIndex:index];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://imgur.com/%@%@", [object objectForKey:@"hash"], [object objectForKey:@"ext"]]];
     [thumbView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"photoDefault.png"]];
     
 }
@@ -67,7 +71,8 @@
 {
     static int cnt = 0;
     for (int i = 0; i < 50; i++) {
-        [_images addObject:_totalImages[i+cnt]];
+        int index = (i + cnt) % _totalImages.count;
+        [_images addObject:_totalImages[index]];
     }
     
     cnt += 50;
