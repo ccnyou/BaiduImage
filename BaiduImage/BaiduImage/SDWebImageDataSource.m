@@ -13,6 +13,7 @@
 @interface SDWebImageDataSource ()
 
 @property (nonatomic, assign) BOOL isImagesLoaded;
+@property (nonatomic, strong) NSArray* totalImages;
 
 @end
 
@@ -33,9 +34,9 @@
         NSData* data = [[NSData alloc] initWithContentsOfFile:path];
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         NSLog(@"%s line:%d dict = %@", __FUNCTION__, __LINE__, json);
-        NSArray* array = [json objectForKey:@"data"];
-        [_images addObjectsFromArray:array];
-
+        _totalImages = [json objectForKey:@"data"];
+        
+        [self append];
     }
     return self;
 }
@@ -44,12 +45,7 @@
 #pragma mark KTPhotoBrowserDataSource
 
 - (NSInteger)numberOfPhotos {
-    static int c_count = 50;
     NSInteger count = [_images count];
-    if (c_count < count) {
-        c_count += 10;
-        return c_count;
-    }
     return count;
 }
 
@@ -67,13 +63,13 @@
     
 }
 
-- (void)again
+- (void)append
 {
     static int cnt = 0;
-    for (int i = 0; i < 20; i++) {
-        [_images addObject:_images[i+cnt]];
+    for (int i = 0; i < 50; i++) {
+        [_images addObject:_totalImages[i+cnt]];
     }
     
-    cnt += 20;
+    cnt += 50;
 }
 @end

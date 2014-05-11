@@ -73,7 +73,7 @@
 
 - (void)doneWithView:(MJRefreshBaseView *)refreshView
 {
-    [self.images again];
+    [self.images append];
     [refreshView endRefreshing];
 }
 

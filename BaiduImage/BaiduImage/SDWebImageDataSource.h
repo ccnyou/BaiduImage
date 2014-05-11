@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) NSMutableArray* images;
 
-- (void)again;
+- (void)append;
 
 @end
