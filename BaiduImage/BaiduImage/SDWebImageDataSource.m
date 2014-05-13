@@ -31,10 +31,10 @@
         _images = [[NSMutableArray alloc] init];
         
         NSString* path = [[NSBundle mainBundle] pathForResource:@"images" ofType:@"json"];
-        NSLog(@"%s line:%d %@", __FUNCTION__, __LINE__, path);
+        //NSLog(@"%s line:%d %@", __FUNCTION__, __LINE__, path);
         NSData* data = [[NSData alloc] initWithContentsOfFile:path];
         NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-        NSLog(@"%s line:%d dict = %@", __FUNCTION__, __LINE__, json);
+        //NSLog(@"%s line:%d dict = %@", __FUNCTION__, __LINE__, json);
         _totalImages = [json objectForKey:@"file_names"];
         
         [self append];
